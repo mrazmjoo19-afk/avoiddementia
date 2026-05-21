@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>AvoidDementia — Protect Your Brain, Live Fully</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --forest:    #1e4035;
+  --forest-mid:#2d5a46;
+  --forest-lt: #3d7a5e;
+  --sage:      #8fbb9d;
+  --sage-pale: #d4ead9;
+  --cream:     #faf7f0;
+  --cream-mid: #f0ead8;
+  --amber:     #e8953a;
+  --amber-lt:  #fdb96a;
+  --red-warn:  #c0392b;
+  --red-bg:    #fdf0ef;
+  --text:      #2a2a2a;
+  --text-mid:  #555;
+  --text-lt:   #7a7a7a;
+  --white:     #ffffff;
+  --border:    rgba(30,64,53,0.12);
+}
+html { scroll-behavior: smooth; }
+body { font-family: 'Nunito', sans-serif; background: var(--cream); color: var(--text); overflow-x: hidden; line-height: 1.6; }
+
+/* ── DISCLAIMER BANNER ── */
+.disclaimer-banner {
+  background: #fff8e1;
+  border-bottom: 2px solid #f0c040;
+  padding: 10px 52px;
+  display: flex; align-items: flex-start; gap: 10px;
+  font-size: 12.5px; color: #5a4200; line-height: 1.5;
+}
+.disclaimer-banner .disc-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+.disclaimer-banner strong { color: #3a2a00; }
+
+/* ── TOPBAR ── */
+.topbar {
+  background: var(--forest);
+  color: var(--sage-pale);
+  font-size: 13px; padding: 9px 52px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.topbar a { color: var(--amber-lt); text-decoration: none; font-weight: 600; }
+.topbar a:hover { color: var(--white); }
+.topbar-right { display: flex; gap: 24px; align-items: center; }
+
+/* ── NAV ── */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(250,247,240,0.97);
+  backdrop-filter: blur(10px);
+  border-bottom: 2px solid var(--sage-pale);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 52px; height: 72px;
+  box-shadow: 0 2px 20px rgba(30,64,53,0.08);
+}
+.logo { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 900; color: var(--forest); text-decoration: none; display: flex; align-items: center; gap: 12px; }
+.logo-mark { width: 42px; height: 42px; background: var(--forest); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.logo-mark svg { width: 24px; height: 24px; }
+.logo em { color: var(--amber); font-style: normal; }
+.nav-links { display: flex; align-items: center; gap: 2px; }
+.nav-item { position: relative; }
+.nav-item > a { font-size: 14px; font-weight: 600; color: var(--text-mid); text-decoration: none; padding: 8px 16px; border-radius: 8px; display: flex; align-items: center; gap: 5px; transition: color .2s, background .2s; }
+.nav-item > a:hover, .nav-item:hover > a { color: var(--forest); background: var(--sage-pale); }
+.dropdown { display: none; position: absolute; top: calc(100% + 6px); left: 0; background: var(--white); border: 1px solid var(--border); border-radius: 12px; min-width: 240px; padding: 8px; box-shadow: 0 16px 48px rgba(30,64,53,0.14); }
+.nav-item:hover .dropdown { display: block; }
+.dropdown a { display: block; padding: 10px 14px; font-size: 13.5px; font-weight: 600; color: var(--text-mid); text-decoration: none; border-radius: 8px; transition: all .15s; }
+.dropdown a:hover { color: var(--forest); background: var(--sage-pale); padding-left: 20px; }
+.nav-cta { background: var(--forest); color: var(--white) !important; padding: 10px 22px !important; border-radius: 30px; font-weight: 700; transition: background .2s, transform .2s !important; }
+.nav-cta:hover { background: var(--forest-lt) !important; transform: translateY(-1px); }
+
+/* ── HERO ── */
+.hero { position: relative; min-height: 88vh; display: grid; grid-template-columns: 1fr 1fr; align-items: center; overflow: hidden; }
+.hero-left { padding: 80px 64px 80px 52px; position: relative; z-index: 2; }
+.hero-right { position: relative; height: 100%; min-height: 88vh; background: var(--forest); display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.hero-right-bg { position: absolute; inset: 0; background: radial-gradient(ellipse at 60% 40%, var(--forest-lt) 0%, var(--forest) 60%); }
+.brain-visual { position: relative; z-index: 2; width: 340px; height: 340px; }
+.hero-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--sage-pale); color: var(--forest); font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 7px 16px; border-radius: 20px; margin-bottom: 28px; animation: fadeUp .6s ease both; border: 1.5px solid var(--sage); }
+.hero-badge::before { content: '🌿'; font-size: 14px; }
+.hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(38px, 4.5vw, 62px); font-weight: 900; line-height: 1.08; letter-spacing: -0.02em; color: var(--forest); margin-bottom: 22px; animation: fadeUp .6s .1s ease both; }
+.hero h1 em { color: var(--amber); font-style: normal; }
+.hero p { font-size: 17px; color: var(--text-mid); line-height: 1.75; max-width: 500px; margin-bottom: 40px; animation: fadeUp .6s .2s ease both; }
+.hero-actions { display: flex; gap: 14px; flex-wrap: wrap; animation: fadeUp .6s .3s ease both; }
+.btn-green { background: var(--forest); color: var(--white); font-family: 'Nunito', sans-serif; font-size: 15px; font-weight: 700; padding: 14px 32px; border-radius: 30px; text-decoration: none; transition: all .2s; box-shadow: 0 4px 16px rgba(30,64,53,0.25); }
+.btn-green:hover { background: var(--forest-lt); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(30,64,53,0.3); }
+.btn-amber { background: var(--amber); color: var(--white); font-family: 'Nunito', sans-serif; font-size: 15px; font-weight: 700; padding: 14px 32px; border-radius: 30px; text-decoration: none; transition: all .2s; box-shadow: 0 4px 16px rgba(232,149,58,0.3); display: inline-block; }
+.btn-amber:hover { background: #d4832a; transform: translateY(-2px); }
+.hero-trust { display: flex; gap: 28px; margin-top: 48px; flex-wrap: wrap; animation: fadeUp .6s .4s ease both; }
+.trust-item { display: flex; align-items: center; gap: 8px; }
+.trust-icon { font-size: 20px; }
+.trust-text { font-size: 13px; font-weight: 600; color: var(--text-mid); }
+.pulse-ring { fill: none; stroke: rgba(255,255,255,0.15); animation: growRing 4s ease-in-out infinite; }
+.pulse-ring:nth-child(2) { animation-delay: 1.3s; }
+.pulse-ring:nth-child(3) { animation-delay: 2.6s; }
+@keyframes growRing { 0% { r: 80; opacity: 0; } 20% { opacity: 1; } 100% { r: 160; opacity: 0; } }
+@keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+
+/* ── STATS BAR ── */
+.stats-bar { background: var(--forest); color: var(--white); display: grid; grid-template-columns: repeat(4, 1fr); border-top: 3px solid var(--amber); }
+.stat-item { padding: 36px 24px; text-align: center; border-right: 1px solid rgba(255,255,255,0.08); }
+.stat-item:last-child { border-right: none; }
+.stat-num { font-family: 'Playfair Display', serif; font-size: 42px; font-weight: 900; color: var(--amber-lt); line-height: 1; }
+.stat-label { font-size: 13px; color: var(--sage); margin-top: 6px; font-weight: 600; }
+
+/* ── SECTIONS ── */
+.section { padding: 100px 52px; }
+.section-label { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--amber); margin-bottom: 12px; font-weight: 700; }
+.section-title { font-family: 'Playfair Display', serif; font-size: clamp(30px, 3.5vw, 46px); font-weight: 900; letter-spacing: -0.02em; line-height: 1.1; color: var(--forest); margin-bottom: 16px; }
+.section-sub { font-size: 16px; color: var(--text-mid); max-width: 560px; line-height: 1.75; }
+
+/* ── RISK CARDS ── */
+.risk-section { background: var(--white); }
+.risk-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; margin-bottom: 72px; }
+.risk-callout { background: var(--sage-pale); border-left: 4px solid var(--forest); border-radius: 0 12px 12px 0; padding: 24px 28px; font-size: 16px; line-height: 1.7; color: var(--forest); font-weight: 600; }
+.risk-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+.risk-card { background: var(--cream); border: 1.5px solid var(--border); border-radius: 16px; padding: 28px; transition: all .25s; position: relative; overflow: hidden; }
+.risk-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--sage); transition: background .2s; }
+.risk-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(30,64,53,0.12); border-color: var(--sage); }
+.risk-card:hover::before { background: var(--amber); }
+.risk-emoji { font-size: 32px; margin-bottom: 14px; }
+.risk-card h3 { font-family: 'Playfair Display', serif; font-size: 19px; font-weight: 700; color: var(--forest); margin-bottom: 8px; }
+.risk-card p { font-size: 14px; color: var(--text-mid); line-height: 1.7; }
+.risk-tag { display: inline-block; margin-top: 14px; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; background: var(--sage-pale); color: var(--forest-mid); padding: 4px 10px; border-radius: 4px; }
+
+/* ── LEARN ── */
+.learn-section { background: var(--cream-mid); }
+.learn-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; margin-top: 56px; }
+.learn-list { display: flex; flex-direction: column; gap: 16px; }
+.learn-item { background: var(--white); border-radius: 14px; padding: 24px 28px; display: flex; gap: 18px; align-items: flex-start; border: 1.5px solid var(--border); transition: all .2s; cursor: pointer; text-decoration: none; }
+.learn-item:hover { border-color: var(--forest); transform: translateX(6px); box-shadow: 0 4px 20px rgba(30,64,53,0.1); }
+.learn-num { width: 36px; height: 36px; flex-shrink: 0; background: var(--forest); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 900; color: var(--white); font-family: 'Playfair Display', serif; }
+.learn-text h4 { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 700; color: var(--forest); margin-bottom: 5px; }
+.learn-text p { font-size: 13.5px; color: var(--text-mid); line-height: 1.6; }
+.learn-aside { background: var(--forest); border-radius: 20px; padding: 40px 36px; color: var(--white); position: sticky; top: 90px; }
+.learn-aside h3 { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 900; margin-bottom: 14px; line-height: 1.2; }
+.learn-aside p { font-size: 14px; color: var(--sage); line-height: 1.7; margin-bottom: 24px; }
+.aside-checklist { display: flex; flex-direction: column; gap: 12px; margin-bottom: 28px; }
+.aside-check { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--sage-pale); font-weight: 600; }
+.aside-check::before { content: '✓'; width: 22px; height: 22px; flex-shrink: 0; background: var(--forest-lt); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; color: var(--amber-lt); font-weight: 900; }
+.aside-btn { display: block; text-align: center; background: var(--amber); color: var(--white); font-size: 14px; font-weight: 700; padding: 13px 24px; border-radius: 30px; text-decoration: none; transition: background .2s; cursor: pointer; border: none; font-family: 'Nunito', sans-serif; width: 100%; }
+.aside-btn:hover { background: #d4832a; }
+
+/* ══════════════════════════════════════════
+   AI QUIZ SECTION
+══════════════════════════════════════════ */
+.quiz-section {
+  background: var(--forest);
+  padding: 0;
+}
+.quiz-header {
+  background: linear-gradient(135deg, var(--forest) 0%, #163328 100%);
+  padding: 80px 52px 60px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.quiz-header::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: radial-gradient(rgba(143,187,157,0.07) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+.quiz-header .section-label { color: var(--amber-lt); }
+.quiz-header .section-title { color: var(--white); margin: 0 auto 16px; max-width: 700px; }
+.quiz-header .section-sub { color: var(--sage); margin: 0 auto 40px; text-align: center; }
+
+/* Medical disclaimer inside quiz */
+.quiz-disclaimer {
+  background: rgba(192,57,43,0.15);
+  border: 1.5px solid rgba(192,57,43,0.4);
+  border-radius: 12px;
+  padding: 16px 20px;
+  display: flex; gap: 12px; align-items: flex-start;
+  font-size: 13px; color: #ffcdc9; line-height: 1.55;
+  max-width: 720px; margin: 0 auto 40px;
+}
+.quiz-disclaimer .qd-icon { font-size: 18px; flex-shrink: 0; }
+.quiz-disclaimer strong { color: #ffb3ad; }
+
+.quiz-container {
+  max-width: 820px;
+  margin: 0 auto;
+  background: var(--white);
+  border-radius: 24px 24px 0 0;
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Progress bar */
+.quiz-progress-wrap { height: 6px; background: var(--sage-pale); }
+.quiz-progress-bar { height: 6px; background: linear-gradient(90deg, var(--forest), var(--amber)); border-radius: 3px; transition: width .4s ease; }
+.quiz-step-label { padding: 18px 36px 0; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-lt); }
+
+/* Question cards */
+.quiz-inner { padding: 32px 36px 40px; min-height: 380px; }
+.quiz-question { display: none; animation: fadeIn .35s ease; }
+.quiz-question.active { display: block; }
+@keyframes fadeIn { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
+
+.question-emoji { font-size: 40px; margin-bottom: 14px; }
+.question-text { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: var(--forest); line-height: 1.35; margin-bottom: 8px; }
+.question-hint { font-size: 13.5px; color: var(--text-lt); margin-bottom: 24px; line-height: 1.5; }
+
+.quiz-options { display: flex; flex-direction: column; gap: 10px; }
+.quiz-option {
+  display: flex; align-items: center; gap: 14px;
+  background: var(--cream);
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  padding: 14px 18px;
+  cursor: pointer;
+  transition: all .2s;
+  font-size: 15px; font-weight: 600; color: var(--text);
+}
+.quiz-option:hover { border-color: var(--sage); background: var(--sage-pale); }
+.quiz-option.selected { border-color: var(--forest); background: var(--sage-pale); color: var(--forest); }
+.quiz-option .opt-dot { width: 20px; height: 20px; border-radius: 50%; border: 2px solid var(--sage); flex-shrink: 0; transition: all .2s; display: flex; align-items: center; justify-content: center; }
+.quiz-option.selected .opt-dot { background: var(--forest); border-color: var(--forest); }
+.quiz-option.selected .opt-dot::after { content: '✓'; font-size: 11px; color: white; font-weight: 900; }
+
+.quiz-nav { display: flex; justify-content: space-between; align-items: center; padding: 0 36px 32px; }
+.quiz-btn-back { background: none; border: 2px solid var(--border); color: var(--text-mid); font-family: 'Nunito', sans-serif; font-size: 14px; font-weight: 700; padding: 11px 22px; border-radius: 30px; cursor: pointer; transition: all .2s; }
+.quiz-btn-back:hover { border-color: var(--forest); color: var(--forest); }
+.quiz-btn-next { background: var(--forest); color: var(--white); font-family: 'Nunito', sans-serif; font-size: 14px; font-weight: 700; padding: 11px 28px; border-radius: 30px; cursor: pointer; border: none; transition: all .2s; opacity: 0.4; pointer-events: none; }
+.quiz-btn-next.ready { opacity: 1; pointer-events: all; }
+.quiz-btn-next.ready:hover { background: var(--forest-lt); transform: translateY(-1px); }
+.quiz-btn-next.submit-btn { background: var(--amber); opacity: 1; pointer-events: all; }
+.quiz-btn-next.submit-btn:hover { background: #d4832a; }
+
+/* Loading */
+.quiz-loading { display: none; text-align: center; padding: 60px 36px; }
+.quiz-loading.active { display: block; }
+.loading-brain { font-size: 56px; animation: pulse-emoji 1.5s ease-in-out infinite; }
+@keyframes pulse-emoji { 0%,100%{transform:scale(1);} 50%{transform:scale(1.15);} }
+.loading-text { font-family: 'Playfair Display', serif; font-size: 20px; color: var(--forest); margin-top: 20px; }
+.loading-sub { font-size: 14px; color: var(--text-lt); margin-top: 8px; }
+.loading-dots::after { content: ''; animation: dots 1.5s steps(4,end) infinite; }
+@keyframes dots { 0%{content:'';} 25%{content:'.';} 50%{content:'..';} 75%{content:'...';} }
+
+/* Results */
+.quiz-results { display: none; padding: 36px; }
+.quiz-results.active { display: block; }
+.result-header { display: flex; align-items: center; gap: 16px; margin-bottom: 28px; }
+.result-icon { font-size: 48px; }
+.result-title { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 900; color: var(--forest); line-height: 1.2; }
+.result-subtitle { font-size: 14px; color: var(--text-lt); margin-top: 4px; }
+.ai-response {
+  background: var(--cream);
+  border-radius: 16px;
+  padding: 28px;
+  border-left: 4px solid var(--forest);
+  font-size: 15px; line-height: 1.8; color: var(--text);
+  margin-bottom: 24px;
+}
+.ai-response h4 { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 700; color: var(--forest); margin: 18px 0 8px; }
+.ai-response h4:first-child { margin-top: 0; }
+.ai-response p { margin-bottom: 10px; }
+.ai-response ul { padding-left: 20px; margin-bottom: 10px; }
+.ai-response li { margin-bottom: 6px; }
+.result-disclaimer {
+  background: var(--red-bg);
+  border: 1.5px solid rgba(192,57,43,0.25);
+  border-radius: 12px;
+  padding: 16px 20px;
+  font-size: 13px; color: #7a2020; line-height: 1.6;
+  display: flex; gap: 10px;
+}
+.result-disclaimer strong { color: var(--red-warn); }
+.retake-btn { margin-top: 24px; background: var(--forest); color: var(--white); font-family: 'Nunito', sans-serif; font-size: 14px; font-weight: 700; padding: 12px 28px; border-radius: 30px; border: none; cursor: pointer; transition: all .2s; }
+.retake-btn:hover { background: var(--forest-lt); }
+
+/* Error */
+.quiz-error { display: none; padding: 36px; text-align: center; }
+.quiz-error.active { display: block; }
+.quiz-error p { color: var(--text-mid); margin-bottom: 16px; }
+
+/* ══════════════════════════════════════════
+   FORMAL TESTS SECTION
+══════════════════════════════════════════ */
+.formal-tests { background: var(--cream-mid); }
+.formal-tests-intro { max-width: 640px; margin-bottom: 56px; }
+.tests-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; }
+.test-card {
+  background: var(--white);
+  border-radius: 20px;
+  border: 2px solid var(--border);
+  padding: 32px;
+  display: flex; flex-direction: column;
+  transition: all .25s;
+  position: relative;
+  overflow: hidden;
+}
+.test-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(30,64,53,0.12); border-color: var(--sage); }
+.test-badge { position: absolute; top: 20px; right: 20px; font-size: 10px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 10px; border-radius: 20px; }
+.badge-free { background: #e8f5e9; color: #1b5e20; }
+.badge-free-link { background: #e3f2fd; color: #0d47a1; }
+.test-org { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--amber); margin-bottom: 10px; }
+.test-card h3 { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 900; color: var(--forest); margin-bottom: 10px; line-height: 1.2; }
+.test-card p { font-size: 14px; color: var(--text-mid); line-height: 1.7; flex: 1; margin-bottom: 20px; }
+.test-meta { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 20px; }
+.test-meta-item { font-size: 12px; font-weight: 600; color: var(--text-lt); display: flex; align-items: center; gap: 5px; }
+.test-link {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  background: var(--forest);
+  color: var(--white);
+  font-size: 14px; font-weight: 700;
+  padding: 12px 20px; border-radius: 30px;
+  text-decoration: none;
+  transition: all .2s;
+  text-align: center;
+}
+.test-link:hover { background: var(--forest-lt); transform: translateY(-1px); }
+.test-link.amber-link { background: var(--amber); }
+.test-link.amber-link:hover { background: #d4832a; }
+.test-note { font-size: 12px; color: var(--text-lt); margin-top: 12px; line-height: 1.5; }
+
+/* Full disclaimer section */
+.disclaimer-section { background: var(--red-bg); border-top: 3px solid rgba(192,57,43,0.3); padding: 56px 52px; }
+.disclaimer-box { background: var(--white); border: 2px solid rgba(192,57,43,0.2); border-radius: 20px; padding: 40px; max-width: 880px; margin: 0 auto; }
+.disclaimer-box h2 { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 900; color: var(--red-warn); margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
+.disclaimer-box p { font-size: 14.5px; color: #5a2020; line-height: 1.8; margin-bottom: 14px; }
+.disclaimer-box p:last-child { margin-bottom: 0; }
+.disclaimer-box strong { color: var(--red-warn); }
+.disclaimer-box ul { padding-left: 22px; margin-bottom: 14px; }
+.disclaimer-box li { font-size: 14px; color: #5a2020; line-height: 1.7; margin-bottom: 6px; }
+
+/* ── NEWS ── */
+.news-section { background: var(--white); }
+.news-header { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 16px; margin-bottom: 48px; }
+.see-all { color: var(--forest); font-size: 14px; font-weight: 700; text-decoration: none; display: flex; align-items: center; gap: 6px; }
+.see-all:hover { color: var(--amber); }
+.news-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; }
+.news-card { border-radius: 16px; overflow: hidden; border: 1.5px solid var(--border); background: var(--cream); text-decoration: none; display: block; transition: all .2s; }
+.news-card:hover { transform: translateY(-5px); box-shadow: 0 16px 40px rgba(30,64,53,0.12); border-color: var(--sage); }
+.news-thumb { height: 170px; display: flex; align-items: center; justify-content: center; font-size: 52px; }
+.thumb-green { background: linear-gradient(135deg, #c8e6c9, #a5d6a7); }
+.thumb-amber { background: linear-gradient(135deg, #ffe0b2, #ffcc80); }
+.thumb-blue  { background: linear-gradient(135deg, #b3e5fc, #81d4fa); }
+.news-body { padding: 24px; }
+.news-cat { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--amber); margin-bottom: 8px; }
+.news-card h3 { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: var(--forest); line-height: 1.3; margin-bottom: 8px; }
+.news-card p { font-size: 13.5px; color: var(--text-mid); line-height: 1.65; }
+.news-footer-row { display: flex; justify-content: space-between; align-items: center; margin-top: 16px; }
+.news-date { font-size: 12px; color: var(--text-lt); }
+.read-more { font-size: 12px; font-weight: 700; color: var(--forest-lt); }
+
+/* ── QUOTE BAND ── */
+.quote-band { background: var(--amber); padding: 72px 52px; text-align: center; }
+.quote-band blockquote { font-family: 'Playfair Display', serif; font-size: clamp(20px, 3vw, 34px); font-weight: 700; color: var(--white); line-height: 1.4; max-width: 860px; margin: 0 auto 16px; }
+.quote-band cite { font-size: 14px; color: rgba(255,255,255,0.8); font-style: normal; font-weight: 600; }
+
+/* ── CTA ── */
+.cta-section { background: var(--forest); padding: 100px 52px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.cta-left h2 { font-family: 'Playfair Display', serif; font-size: clamp(28px, 3.5vw, 46px); font-weight: 900; color: var(--white); line-height: 1.1; margin-bottom: 18px; }
+.cta-left p { font-size: 16px; color: var(--sage); line-height: 1.75; max-width: 460px; }
+.cta-right { background: rgba(255,255,255,0.05); border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); padding: 40px; }
+.cta-right h3 { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: var(--white); margin-bottom: 24px; }
+.newsletter-form { display: flex; flex-direction: column; gap: 14px; }
+.newsletter-form input { background: rgba(255,255,255,0.08); border: 1.5px solid rgba(255,255,255,0.15); border-radius: 10px; padding: 14px 18px; font-family: 'Nunito', sans-serif; font-size: 15px; color: var(--white); outline: none; transition: border-color .2s; }
+.newsletter-form input::placeholder { color: rgba(255,255,255,0.4); }
+.newsletter-form input:focus { border-color: var(--amber); }
+.newsletter-form button { background: var(--amber); color: var(--white); border: none; border-radius: 10px; padding: 14px 24px; font-family: 'Nunito', sans-serif; font-size: 15px; font-weight: 700; cursor: pointer; transition: background .2s; }
+.newsletter-form button:hover { background: #d4832a; }
+.form-note { font-size: 12px; color: var(--sage); margin-top: 4px; }
+
+/* ── FOOTER ── */
+footer { background: #111d17; border-top: 3px solid var(--forest); padding: 72px 52px 32px; }
+.footer-top { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 48px; padding-bottom: 56px; border-bottom: 1px solid rgba(255,255,255,0.07); }
+.footer-logo { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 900; color: var(--white); margin-bottom: 14px; display: block; text-decoration: none; }
+.footer-logo em { color: var(--amber); font-style: normal; }
+.footer-brand p { font-size: 13.5px; color: #7a9e8a; line-height: 1.7; max-width: 260px; margin-bottom: 24px; }
+.footer-socials { display: flex; gap: 10px; }
+.footer-socials a { width: 38px; height: 38px; background: rgba(255,255,255,0.06); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 16px; text-decoration: none; transition: background .2s; }
+.footer-socials a:hover { background: var(--forest-lt); }
+.footer-col h4 { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sage); margin-bottom: 20px; }
+.footer-col a { display: block; font-size: 13.5px; color: #7a9e8a; text-decoration: none; margin-bottom: 11px; transition: color .15s; }
+.footer-col a:hover { color: var(--amber-lt); }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; padding-top: 28px; font-size: 12px; color: #4a7060; }
+.footer-bottom a { color: #4a7060; text-decoration: none; margin-left: 20px; }
+.footer-bottom a:hover { color: var(--sage); }
+
+@media (max-width: 900px) {
+  .disclaimer-banner, .topbar, nav, .section, .quiz-header, .quote-band, .cta-section, .disclaimer-section, footer { padding-left: 20px; padding-right: 20px; }
+  nav { padding: 0 20px; }
+  .nav-links { display: none; }
+  .hero { grid-template-columns: 1fr; }
+  .hero-right { display: none; }
+  .hero-left { padding: 56px 20px 50px; }
+  .stats-bar { grid-template-columns: 1fr 1fr; }
+  .risk-intro { grid-template-columns: 1fr; gap: 28px; }
+  .learn-grid { grid-template-columns: 1fr; }
+  .cta-section { grid-template-columns: 1fr; gap: 36px; }
+  .footer-top { grid-template-columns: 1fr 1fr; }
+  .quiz-inner, .quiz-nav, .quiz-results, .quiz-loading, .quiz-error { padding-left: 20px; padding-right: 20px; }
+  .quiz-step-label { padding-left: 20px; padding-right: 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── DISCLAIMER BANNER ── -->
+<div class="disclaimer-banner">
+  <span class="disc-icon">⚠️</span>
+  <span><strong>Important Notice:</strong> AvoidDementia provides general educational information only. Nothing on this website constitutes medical advice, diagnosis, or treatment. The AI quiz is a lifestyle awareness tool — it is <strong>not</strong> a clinical assessment. Always consult a qualified healthcare professional for any concerns about memory or cognitive health.</span>
+</div>
+
+<!-- ── TOPBAR ── -->
+<div class="topbar">
+  <span>🧠 Up to 40% of dementia cases may be preventable — learn how.</span>
+  <div class="topbar-right">
+    <a href="#quiz-section">Free Risk Quiz</a>
+    <span style="opacity:.4">|</span>
+    <a href="#formal-tests">Clinical Screening Tests</a>
+  </div>
+</div>
+
+<!-- ── NAV ── -->
+<nav>
+  <a href="#" class="logo">
+    <div class="logo-mark">
+      <svg viewBox="0 0 24 24" fill="none">
+        <path d="M12 3C9.5 3 7.5 4.8 7.5 7c0 .6.1 1.1.4 1.6C6.3 9.1 5 10.5 5 12.2c0 1 .4 1.9 1 2.6-.3.5-.5 1.1-.5 1.7 0 2 1.6 3.5 3.5 3.5.5 0 1-.1 1.4-.3.5.8 1.4 1.3 2.4 1.3s1.9-.5 2.4-1.3c.4.2.9.3 1.4.3 1.9 0 3.5-1.5 3.5-3.5 0-.6-.2-1.2-.5-1.7.6-.7 1-1.6 1-2.6 0-1.7-1.3-3.1-2.9-3.6.3-.5.4-1 .4-1.6C18.5 4.8 16.5 3 14 3c-.7 0-1.4.2-2 .5-.6-.3-1.3-.5-2-.5z" stroke="#8fbb9d" stroke-width="1.3" fill="rgba(143,187,157,0.2)"/>
+        <path d="M12 3.5v17M9 8.5c1 0 2-.5 3-1.5M15 8.5c-1 0-2-.5-3-1.5M8 13c1.2 0 2.5-.7 4-2M16 13c-1.2 0-2.5-.7-4-2" stroke="#8fbb9d" stroke-width="1" stroke-linecap="round"/>
+      </svg>
+    </div>
+    Avoid<em>Dementia</em>
+  </a>
+  <div class="nav-links">
+    <div class="nav-item">
+      <a href="#">About Dementia ▾</a>
+      <div class="dropdown">
+        <a href="#">What Is Dementia?</a>
+        <a href="#">Types of Dementia</a>
+        <a href="#">Stages & Progression</a>
+        <a href="#">Early Warning Signs</a>
+      </div>
+    </div>
+    <div class="nav-item">
+      <a href="#">Risk Factors ▾</a>
+      <div class="dropdown">
+        <a href="#">12 Modifiable Risk Factors</a>
+        <a href="#">Lifestyle & Brain Health</a>
+        <a href="#">Genetics & Family History</a>
+      </div>
+    </div>
+    <div class="nav-item">
+      <a href="#">Prevention ▾</a>
+      <div class="dropdown">
+        <a href="#">Exercise & Movement</a>
+        <a href="#">Diet & Nutrition (MIND Diet)</a>
+        <a href="#">Sleep & Brain Recovery</a>
+        <a href="#">Social Connection</a>
+      </div>
+    </div>
+    <div class="nav-item">
+      <a href="#formal-tests">Cognitive Tests ▾</a>
+      <div class="dropdown">
+        <a href="https://wexnermedical.osu.edu/brain-spine-neuro/memory-disorders/sage" target="_blank">SAGE Test (Free PDF)</a>
+        <a href="https://alzfdn.org/get-a-free-screening/" target="_blank">MoCA XpressO™ (Free)</a>
+        <a href="#formal-tests">All Formal Tests →</a>
+      </div>
+    </div>
+    <a href="#quiz-section" class="nav-cta" style="text-decoration:none; display:block; padding:10px 22px; border-radius:30px; font-weight:700; background:var(--forest); color:white; font-size:14px;">Free Risk Quiz</a>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-badge">Evidence-Based Brain Health Education</div>
+    <h1>Protect Your Brain.<br/>Reduce Your <em>Risk</em>.<br/>Live Fully.</h1>
+    <p>Up to 40% of dementia cases are linked to modifiable risk factors. Learn what the science says — and take meaningful steps to protect your brain health at any age.</p>
+    <div class="hero-actions">
+      <a href="#risk-factors" class="btn-green">Explore Risk Factors</a>
+      <a href="#quiz-section" class="btn-amber">Take the Free Quiz →</a>
+    </div>
+    <div class="hero-trust">
+      <div class="trust-item"><span class="trust-icon">🏛️</span><span class="trust-text">Evidence-based</span></div>
+      <div class="trust-item"><span class="trust-icon">🩺</span><span class="trust-text">Clinician-reviewed</span></div>
+      <div class="trust-item"><span class="trust-icon">🔬</span><span class="trust-text">Latest research</span></div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-right-bg"></div>
+    <svg class="brain-visual" viewBox="0 0 340 340" fill="none">
+      <circle class="pulse-ring" cx="170" cy="170" r="80" stroke-width="1"/>
+      <circle class="pulse-ring" cx="170" cy="170" r="80" stroke-width="1"/>
+      <circle class="pulse-ring" cx="170" cy="170" r="80" stroke-width="1"/>
+      <circle cx="170" cy="170" r="120" fill="rgba(143,187,157,0.08)" stroke="rgba(143,187,157,0.2)" stroke-width="1.5"/>
+      <circle cx="170" cy="170" r="95" fill="rgba(143,187,157,0.1)" stroke="rgba(143,187,157,0.3)" stroke-width="1"/>
+      <g transform="translate(100,90)">
+        <path d="M70 20 C30 20 5 45 5 75 C5 95 15 110 30 120 C20 130 15 142 18 158 C22 178 40 188 58 185 C62 195 72 200 82 198 L82 20 Z" fill="rgba(61,122,94,0.7)" stroke="rgba(143,187,157,0.5)" stroke-width="1.5"/>
+        <path d="M70 20 C110 20 135 45 135 75 C135 95 125 110 110 120 C120 130 125 142 122 158 C118 178 100 188 82 185 C78 195 68 200 58 198 L82 20 Z" fill="rgba(45,90,70,0.7)" stroke="rgba(143,187,157,0.5)" stroke-width="1.5"/>
+        <line x1="70" y1="25" x2="70" y2="195" stroke="rgba(143,187,157,0.6)" stroke-width="1.5" stroke-dasharray="4 4"/>
+        <path d="M30 80 Q50 75 55 95 Q45 105 35 100" stroke="rgba(143,187,157,0.5)" stroke-width="1" fill="none"/>
+        <path d="M25 120 Q48 115 52 135" stroke="rgba(143,187,157,0.4)" stroke-width="1" fill="none"/>
+        <path d="M110 80 Q90 75 85 95 Q95 105 105 100" stroke="rgba(143,187,157,0.5)" stroke-width="1" fill="none"/>
+        <path d="M115 120 Q92 115 88 135" stroke="rgba(143,187,157,0.4)" stroke-width="1" fill="none"/>
+      </g>
+      <circle cx="68" cy="80" r="22" fill="rgba(232,149,58,0.85)"/>
+      <text x="68" y="85" text-anchor="middle" font-size="18" fill="white">🏃</text>
+      <circle cx="272" cy="100" r="22" fill="rgba(61,122,94,0.85)"/>
+      <text x="272" y="105" text-anchor="middle" font-size="18" fill="white">🥦</text>
+      <circle cx="50" cy="240" r="22" fill="rgba(61,122,94,0.85)"/>
+      <text x="50" y="245" text-anchor="middle" font-size="18" fill="white">😴</text>
+      <circle cx="285" cy="235" r="22" fill="rgba(232,149,58,0.85)"/>
+      <text x="285" y="240" text-anchor="middle" font-size="18" fill="white">🤝</text>
+      <circle cx="170" cy="295" r="22" fill="rgba(45,90,70,0.85)"/>
+      <text x="170" y="300" text-anchor="middle" font-size="18" fill="white">📚</text>
+    </svg>
+  </div>
+</section>
+
+<!-- ── STATS ── -->
+<div class="stats-bar">
+  <div class="stat-item"><div class="stat-num">55M+</div><div class="stat-label">People living with dementia globally</div></div>
+  <div class="stat-item"><div class="stat-num">40%</div><div class="stat-label">Of cases potentially preventable</div></div>
+  <div class="stat-item"><div class="stat-num">12</div><div class="stat-label">Known modifiable risk factors</div></div>
+  <div class="stat-item"><div class="stat-num">Any age</div><div class="stat-label">Never too early or too late to act</div></div>
+</div>
+
+<!-- ── RISK FACTORS ── -->
+<section class="section risk-section" id="risk-factors">
+  <div class="risk-intro">
+    <div>
+      <div class="section-label">The Science of Prevention</div>
+      <div class="section-title">12 Risk Factors You Can Actually Change</div>
+      <p class="section-sub">The Lancet Commission identified 12 modifiable risk factors accounting for around 40% of worldwide dementias. Addressing them could prevent or delay millions of cases.</p>
+    </div>
+    <div>
+      <div class="risk-callout">
+        "There is sufficiently strong evidence that modifying these 12 risk factors could prevent or delay a significant proportion of dementia cases worldwide."
+        <br/><br/>
+        <span style="font-size:13px; opacity:.7">— The Lancet Commission on Dementia Prevention, 2024</span>
+      </div>
+    </div>
+  </div>
+  <div class="risk-grid">
+    <div class="risk-card"><div class="risk-emoji">🎓</div><h3>Low Education</h3><p>Less formal education in early life reduces cognitive reserve, making the brain more vulnerable to dementia-related changes later on.</p><span class="risk-tag">Early Life</span></div>
+    <div class="risk-card"><div class="risk-emoji">👂</div><h3>Hearing Loss</h3><p>Untreated mid-life hearing loss is the single largest modifiable risk factor. Hearing aids can significantly reduce dementia risk.</p><span class="risk-tag">Mid Life</span></div>
+    <div class="risk-card"><div class="risk-emoji">🫀</div><h3>High Blood Pressure</h3><p>Hypertension in midlife damages brain blood vessels. Managing it is one of the most impactful preventive steps you can take.</p><span class="risk-tag">Mid Life</span></div>
+    <div class="risk-card"><div class="risk-emoji">🚬</div><h3>Smoking</h3><p>Smokers have a significantly higher risk of dementia. Quitting at any age reduces risk — with brain benefits beginning almost immediately.</p><span class="risk-tag">Mid Life</span></div>
+    <div class="risk-card"><div class="risk-emoji">⚖️</div><h3>Obesity</h3><p>Being overweight in midlife raises dementia risk through links to diabetes, hypertension, and inflammation — all of which affect brain health.</p><span class="risk-tag">Mid Life</span></div>
+    <div class="risk-card"><div class="risk-emoji">🍺</div><h3>Excessive Alcohol</h3><p>Drinking more than 21 units per week is associated with accelerated brain ageing and higher dementia risk. Reducing intake makes a real difference.</p><span class="risk-tag">Mid Life</span></div>
+    <div class="risk-card"><div class="risk-emoji">🧪</div><h3>Diabetes</h3><p>Type 2 diabetes is associated with up to double the risk of Alzheimer's disease. Blood sugar management is a key brain-protective strategy.</p><span class="risk-tag">Later Life</span></div>
+    <div class="risk-card"><div class="risk-emoji">😔</div><h3>Depression</h3><p>Both a risk factor and an early symptom, depression is linked to accelerated cognitive decline. Treatment supports long-term brain health.</p><span class="risk-tag">Later Life</span></div>
+    <div class="risk-card"><div class="risk-emoji">🏃</div><h3>Physical Inactivity</h3><p>Regular aerobic exercise increases brain blood flow, promotes neuroplasticity, and reduces multiple dementia risk factors simultaneously.</p><span class="risk-tag">Later Life</span></div>
+    <div class="risk-card"><div class="risk-emoji">🌫️</div><h3>Air Pollution</h3><p>Exposure to particulate matter and traffic pollution is linked to accelerated cognitive decline and higher dementia incidence in older adults.</p><span class="risk-tag">Later Life</span></div>
+    <div class="risk-card"><div class="risk-emoji">🏠</div><h3>Social Isolation</h3><p>Loneliness and lack of social engagement are strong risk factors. Meaningful relationships are as vital as physical health habits.</p><span class="risk-tag">Later Life</span></div>
+    <div class="risk-card"><div class="risk-emoji">🤕</div><h3>Head Injury</h3><p>Traumatic brain injury — especially repeated concussions — increases dementia risk. Wearing helmets and preventing falls are key measures.</p><span class="risk-tag">Later Life</span></div>
+  </div>
+</section>
+
+<!-- ── LEARN ── -->
+<section class="section learn-section">
+  <div class="section-label">Prevention Strategies</div>
+  <div class="section-title">What You Can Do Starting Today</div>
+  <p class="section-sub">Small, consistent lifestyle changes accumulate into meaningful brain protection over time. Here's where to start.</p>
+  <div class="learn-grid">
+    <div class="learn-list">
+      <a href="#" class="learn-item"><div class="learn-num">1</div><div class="learn-text"><h4>Move Your Body Daily</h4><p>Even 150 minutes of moderate aerobic activity per week — brisk walking, swimming, cycling — measurably lowers your dementia risk and improves cognitive reserve.</p></div></a>
+      <a href="#" class="learn-item"><div class="learn-num">2</div><div class="learn-text"><h4>Adopt the MIND Diet</h4><p>A combination of the Mediterranean and DASH diets, the MIND diet emphasises leafy greens, berries, nuts, fish, and olive oil — shown to slow cognitive decline.</p></div></a>
+      <a href="#" class="learn-item"><div class="learn-num">3</div><div class="learn-text"><h4>Prioritise Quality Sleep</h4><p>During deep sleep, the brain clears amyloid plaques — a hallmark of Alzheimer's. Aim for 7–9 hours and treat sleep apnea if diagnosed.</p></div></a>
+      <a href="#" class="learn-item"><div class="learn-num">4</div><div class="learn-text"><h4>Stay Socially & Mentally Active</h4><p>Learning new skills, engaging socially, and challenging your brain with complex activities builds cognitive reserve that delays dementia symptom onset.</p></div></a>
+      <a href="#" class="learn-item"><div class="learn-num">5</div><div class="learn-text"><h4>Manage Your Health Numbers</h4><p>Know your blood pressure, blood sugar, and cholesterol. Working with your GP to keep them in healthy ranges directly protects brain vasculature.</p></div></a>
+    </div>
+    <div class="learn-aside">
+      <h3>Take Our Free AI Risk Assessment</h3>
+      <p>Answer 10 quick questions about your lifestyle. Get personalised, evidence-based feedback on your modifiable risk factors and what you can do about them.</p>
+      <div class="aside-checklist">
+        <div class="aside-check">Takes about 3 minutes</div>
+        <div class="aside-check">Completely anonymous</div>
+        <div class="aside-check">Based on Lancet Commission criteria</div>
+        <div class="aside-check">Personalised AI recommendations</div>
+        <div class="aside-check">Not a clinical diagnosis</div>
+      </div>
+      <button class="aside-btn" onclick="document.getElementById('quiz-section').scrollIntoView({behavior:'smooth'})">Start the Free Quiz →</button>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     AI QUIZ SECTION
+══════════════════════════════════════════ -->
+<section id="quiz-section" class="quiz-section">
+  <div class="quiz-header">
+    <div class="section-label">AI-Powered Lifestyle Assessment</div>
+    <div class="section-title">Your Personalised Dementia Risk Quiz</div>
+    <p class="section-sub">Based on the 12 Lancet Commission modifiable risk factors. Answer honestly — your responses are not stored or shared.</p>
+    <div class="quiz-disclaimer">
+      <span class="qd-icon">🛡️</span>
+      <span><strong>Not a diagnostic tool.</strong> This quiz assesses lifestyle risk factors only. It cannot detect, screen for, or diagnose dementia or mild cognitive impairment. The AI-generated feedback is educational and informational — not medical advice. If you have concerns about memory or thinking, please see your doctor and consider a validated formal screening test below.</span>
+    </div>
+  </div>
+
+  <!-- Quiz widget -->
+  <div style="padding: 0 52px 80px; background: var(--forest);">
+  <div class="quiz-container">
+    <div class="quiz-progress-wrap">
+      <div class="quiz-progress-bar" id="quizProgress" style="width:10%"></div>
+    </div>
+    <div class="quiz-step-label" id="quizStepLabel">Question 1 of 10</div>
+
+    <!-- Questions -->
+    <div class="quiz-inner" id="quizInner">
+
+      <div class="quiz-question active" data-q="0">
+        <div class="question-emoji">🏃</div>
+        <div class="question-text">How physically active are you on a typical week?</div>
+        <div class="question-hint">Include walking, exercise, sport, or any activity that raises your heart rate.</div>
+        <div class="quiz-options">
+          <div class="quiz-option" data-val="active_high"><div class="opt-dot"></div>150+ minutes of moderate activity (e.g. brisk walks, gym, cycling)</div>
+          <div class="quiz-option" data-val="active_low"><div class="opt-dot"></div>Some activity, but less than 150 minutes most weeks</div>
+          <div class="quiz-option" data-val="inactive"><div class="opt-dot"></div>Mostly sedentary — little to no regular exercise</div>
+        </div>
+      </div>
+
+      <div class="quiz-question" data-q="1">
+        <div class="question-emoji">🥗</div>
+        <div class="question-text">How would you describe your typical diet?</div>
+        <div class="question-hint">Think about your average week, not a perfect day.</div>
+        <div class="quiz-options">
+          <div class="quiz-option" data-val="diet_good"><div class="opt-dot"></div>Plenty of vegetables, fruit, fish, whole grains — Mediterranean-style</div>
+          <div class="quiz-option" data-val="diet_mid"><div class="opt-dot"></div>Mixed — some healthy meals, some processed or takeaway food</div>
+          <div class="quiz-option" data-val="diet_poor"><div class="opt-dot"></div>Mostly processed, high-fat, or low-vegetable foods</div>
+        </div>
+      </div>
+
+      <div class="quiz-question" data-q="2">
+        <div class="question-emoji">😴</div>
+        <div class="question-text">How is your sleep quality and duration?</div>
+        <div class="question-hint">Poor sleep is linked to increased amyloid buildup in the brain.</div>
+        <div class="quiz-options">
+          <div class="quiz-option" data-val="sleep_good"><div class="opt-dot"></div>Usually 7–9 hours, feel rested most mornings</div>
+          <div class="quiz-option" data-val="sleep_mid"><div class="opt-dot"></div>Sometimes disrupted — under 7 hours a few nights a week</div>
+          <div class="quiz-option" data-val="sleep_poor"><div class="opt-dot"></div>Regularly poor sleep, insomnia, or snoring/sleep apnea (untreated)</div>
+        </div>
+      </div>
+
+      <div class="quiz-question" data-q="3">
+        <div class="question-emoji">🤝</div>
+        <div class="question-text">How socially connected are you?</div>
+        <div class="question-hint">Social isolation is a significant risk factor for cognitive decline.</div>
+        <div class="quiz-options">
+          <div class="quiz-option" data-val="social_good"><div class="opt-dot"></div>Regularly see friends/family, part of clubs or community groups</div>
+          <div class="quiz-option" data-val="social_mid"><div class="opt-dot"></div>Some social contact, but often feel a bit isolated</div>
+          <div class="quiz-option" data-val="social_poor"><div class="opt-dot"></div>Mostly alone — limited meaningful social interaction most weeks</div>
+        </div>
+      </div>
+
+      <div class="quiz-question" data-q="4">
+        <div class="question-emoji">🧠</div>
+        <div class="question-text">Do you regularly challenge your brain with mentally stimulating activities?</div>
+        <div class="question-hint">Reading, puzzles, learning new skills, playing music, creative hobbies.</div>
+        <div class="quiz-options">
+          <div class="quiz-option" data-val="mental_good"><div class="opt-dot"></div>Yes — I regularly read, learn, puzzle-solve, or pursue challenging hobbies</div>
+          <div class="quiz-option" data-val="mental_mid"><div class="opt-dot"></div>Sometimes, but it could be more consistent</div>
+          <div class="quiz-option" data-val="mental_poor"><div class="opt-dot"></div>Rarely — my days are mostly routine without much mental challenge</div>
+        </div>
+      </div>
+
+      <div class="quiz-question" data-q="5">
+        <div class="question-emoji">🫀</div>
+        <div class="question-text">What is your blood pressure situation?</div>
+        <div class="question-hint">High blood pressure in midlife is a major risk factor for dementia.</div>
+        <div class="quiz-options">
+          <div class="quiz-option" data-val="bp_good"><div class="opt-dot"></div>Normal — checked recently and it's within healthy range</div>
+          <div class="quiz-option" data-val="bp_managed"><div class="opt-dot"></div>High but managed with medication or lifestyle changes</div>
+          <div class="quiz-option" data-val="bp_unknown"><div class="opt-dot"></div>Don't know — hasn't been checked recently</div>
+          <div class="quiz-option" data-val="bp_high"><div class="opt-dot"></div>High and currently unmanaged</div>
+        </div>
+      </div>
+
+      <div class="quiz-question" data-q="6">
+        <div class="question-emoji">🚬</div>
+        <div class="question-text">Do you smoke, or have you smoked in the past?</div>
+        <div class="question-hint">Smoking significantly increases dementia risk — quitting helps at any age.</div>
+        <div class="quiz-options">
+          <div class="quiz-option" data-val="smoke_never"><div class="opt-dot"></div>Never smoked</div>
+          <div class="quiz-option" data-val="smoke_quit"><div class="opt-dot"></div>Used to smoke but quit</div>
+          <div class="quiz-option" data-val="smoke_current"><div class="opt-dot"></div>Currently smoke</div>
+        </div>
+      </div>
+
+      <div class="quiz-question" data-q="7">
+        <div class="question-emoji">🍺</div>
+        <div class="question-text">How much alcohol do you typically drink per week?</div>
+        <div class="question-hint">1 standard drink = 1 beer, 1 glass of wine, or 1 shot of spirits.</div>
+        <div class="quiz-options">
+          <div class="quiz-option" data-val="alcohol_none"><div class="opt-dot"></div>None or very rarely</div>
+          <div class="quiz-option" data-val="alcohol_low"><div class="opt-dot"></div>1–14 standard drinks per week</div>
+          <div class="quiz-option" data-val="alcohol_high"><div class="opt-dot"></div>15+ standard drinks per week</div>
+        </div>
+      </div>
+
+      <div class="quiz-question" data-q="8">
+        <div class="question-emoji">👂</div>
+        <div class="question-text">Do you have any hearing difficulties?</div>
+        <div class="question-hint">Untreated hearing loss is the single largest modifiable risk factor for dementia.</div>
+        <div class="quiz-options">
+          <div class="quiz-option" data-val="hearing_good"><div class="opt-dot"></div>No — my hearing seems fine</div>
+          <div class="quiz-option" data-val="hearing_aided"><div class="opt-dot"></div>Yes, and I use hearing aids or am managing it</div>
+          <div class="quiz-option" data-val="hearing_untreated"><div class="opt-dot"></div>Yes, I have hearing loss that is untreated</div>
+          <div class="quiz-option" data-val="hearing_unknown"><div class="opt-dot"></div>Not sure — hasn't been properly tested</div>
+        </div>
+      </div>
+
+      <div class="quiz-question" data-q="9">
+        <div class="question-emoji">😔</div>
+        <div class="question-text">Have you experienced depression or prolonged low mood?</div>
+        <div class="question-hint">Depression is both a risk factor and sometimes an early sign of cognitive change.</div>
+        <div class="quiz-options">
+          <div class="quiz-option" data-val="mood_good"><div class="opt-dot"></div>No — generally good mental health</div>
+          <div class="quiz-option" data-val="mood_managed"><div class="opt-dot"></div>Yes, but I'm receiving treatment or support</div>
+          <div class="quiz-option" data-val="mood_unmanaged"><div class="opt-dot"></div>Yes — currently experiencing persistent low mood without support</div>
+        </div>
+      </div>
+
+    </div><!-- /quiz-inner -->
+
+    <!-- Loading state -->
+    <div class="quiz-loading" id="quizLoading">
+      <div class="loading-brain">🧠</div>
+      <div class="loading-text">Analysing your responses<span class="loading-dots"></span></div>
+      <div class="loading-sub">Our AI is reviewing your lifestyle profile against the Lancet Commission criteria</div>
+    </div>
+
+    <!-- Results -->
+    <div class="quiz-results" id="quizResults">
+      <div class="result-header">
+        <div class="result-icon">🌿</div>
+        <div>
+          <div class="result-title">Your Personalised Brain Health Report</div>
+          <div class="result-subtitle">Based on your lifestyle responses — for educational purposes only</div>
+        </div>
+      </div>
+      <div class="ai-response" id="aiResponseText">Loading your results...</div>
+      <div class="result-disclaimer">
+        <span>⚠️</span>
+        <span><strong>Important:</strong> This AI-generated report is for educational awareness only. It is not a medical assessment and cannot diagnose, predict, or screen for dementia or cognitive impairment. The risk factors discussed are population-level findings — individual results vary. Please consult your GP or a qualified healthcare professional for any concerns about your memory or brain health. Consider taking a validated formal cognitive screening test below.</span>
+      </div>
+      <div style="display:flex; gap:14px; flex-wrap:wrap; margin-top:24px;">
+        <button class="retake-btn" onclick="resetQuiz()">Retake Quiz</button>
+        <a href="#formal-tests" class="btn-amber" style="font-size:14px; padding:12px 24px;">See Formal Screening Tests →</a>
+      </div>
+    </div>
+
+    <!-- Error -->
+    <div class="quiz-error" id="quizError">
+      <div style="font-size:40px; margin-bottom:16px;">⚠️</div>
+      <p>Something went wrong loading your results. Please check your connection and try again.</p>
+      <button class="retake-btn" onclick="resetQuiz()">Try Again</button>
+    </div>
+
+    <!-- Navigation -->
+    <div class="quiz-nav" id="quizNav">
+      <button class="quiz-btn-back" id="quizBack" onclick="prevQuestion()" style="visibility:hidden">← Back</button>
+      <button class="quiz-btn-next" id="quizNext" onclick="nextQuestion()">Next →</button>
+    </div>
+  </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     FORMAL COGNITIVE TESTS
+══════════════════════════════════════════ -->
+<section class="section formal-tests" id="formal-tests">
+  <div class="formal-tests-intro">
+    <div class="section-label">Validated Clinical Screening Tools</div>
+    <div class="section-title">Free Formal Cognitive Tests</div>
+    <p class="section-sub">These are validated, peer-reviewed tools used by clinicians worldwide. They are more rigorous than our lifestyle quiz — but still not a diagnosis. Always take results to your doctor.</p>
+  </div>
+
+  <div class="tests-grid">
+
+    <!-- SAGE -->
+    <div class="test-card">
+      <span class="test-badge badge-free">Free PDF</span>
+      <div class="test-org">Ohio State University Wexner Medical Center</div>
+      <h3>SAGE Test</h3>
+      <p>The Self-Administered Gerocognitive Exam (SAGE) is a brief, validated cognitive screening instrument designed to detect mild cognitive impairment (MCI) and early dementia. It evaluates memory, language, problem-solving, and visual-spatial skills. It can be completed independently in about 15 minutes with just a pen and paper.</p>
+      <div class="test-meta">
+        <span class="test-meta-item">⏱ 10–15 minutes</span>
+        <span class="test-meta-item">✏️ Pen & paper</span>
+        <span class="test-meta-item">🌍 10+ languages</span>
+        <span class="test-meta-item">📊 ~79% sensitivity</span>
+      </div>
+      <a href="https://wexnermedical.osu.edu/brain-spine-neuro/memory-disorders/sage" target="_blank" rel="noopener" class="test-link">Download Free PDF →</a>
+      <p class="test-note">⚠️ Free for personal and non-commercial educational use. Take completed test to your GP for scoring and interpretation. Results must be reviewed by a healthcare professional.</p>
+    </div>
+
+    <!-- MoCA XpressO -->
+    <div class="test-card">
+      <span class="test-badge badge-free-link">Free Online</span>
+      <div class="test-org">Alzheimer's Foundation of America + MoCA Cognition</div>
+      <h3>MoCA XpressO™</h3>
+      <p>A brief online version of the Montreal Cognitive Assessment (MoCA) — one of the world's most widely used cognitive screening tools. The MoCA XpressO™ is self-administered, takes 5–7 minutes, and is freely available through the Alzheimer's Foundation of America's partnership program. No insurance or minimum age required.</p>
+      <div class="test-meta">
+        <span class="test-meta-item">⏱ 5–7 minutes</span>
+        <span class="test-meta-item">💻 Online</span>
+        <span class="test-meta-item">🌍 36+ languages</span>
+        <span class="test-meta-item">📊 90%+ sensitivity</span>
+      </div>
+      <a href="https://alzfdn.org/get-a-free-screening/" target="_blank" rel="noopener" class="test-link amber-link">Take Free Online Test →</a>
+      <p class="test-note">⚠️ Provided by the Alzheimer's Foundation of America. Discuss your score with your doctor. Not a diagnosis — a score suggesting impairment warrants further professional evaluation.</p>
+    </div>
+
+    <!-- Mini-Cog -->
+    <div class="test-card">
+      <span class="test-badge badge-free">Free PDF</span>
+      <div class="test-org">Mini-Cog© — Soo Borson, University of Washington</div>
+      <h3>Mini-Cog©</h3>
+      <p>A fast, simple 3-minute screening tool that combines a brief memory recall task and a clock-drawing test. Widely used in GP and primary care settings. Validated for detecting dementia across diverse populations and education levels. Printable and freely available for clinical and non-commercial use.</p>
+      <div class="test-meta">
+        <span class="test-meta-item">⏱ 3 minutes</span>
+        <span class="test-meta-item">✏️ Pen & paper</span>
+        <span class="test-meta-item">👩‍⚕️ GP-friendly</span>
+      </div>
+      <a href="https://mini-cog.com/" target="_blank" rel="noopener" class="test-link">Access Free Mini-Cog →</a>
+      <p class="test-note">⚠️ Free for clinical and non-commercial use. Ideally completed with a healthcare provider present for proper scoring and interpretation.</p>
+    </div>
+
+    <!-- MMSE Info -->
+    <div class="test-card">
+      <span class="test-badge badge-free-link">Ask Your GP</span>
+      <div class="test-org">Psychological Assessment Resources (PAR)</div>
+      <h3>MMSE (Mini-Mental State Exam)</h3>
+      <p>The Mini-Mental State Examination is one of the oldest and most widely used cognitive screening tools, assessing orientation, memory, attention, language, and motor skills across 30 questions. It requires administration by a trained clinician and is best suited to measuring how far dementia has progressed rather than detecting early stages.</p>
+      <div class="test-meta">
+        <span class="test-meta-item">⏱ 10–15 minutes</span>
+        <span class="test-meta-item">👩‍⚕️ Clinician administered</span>
+        <span class="test-meta-item">📊 71% sensitivity</span>
+      </div>
+      <a href="https://www.mdcalc.com/calc/10056/mini-mental-state-examination-mmse" target="_blank" rel="noopener" class="test-link">Learn About MMSE →</a>
+      <p class="test-note">⚠️ Requires a healthcare professional to administer and score. Ask your GP or neurologist to perform this as part of a clinical visit.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── MEDICAL DISCLAIMER ── -->
+<section class="disclaimer-section">
+  <div class="disclaimer-box">
+    <h2>⚠️ Important Medical Disclaimer</h2>
+    <p><strong>AvoidDementia is an educational website only.</strong> Nothing on this website — including the AI risk quiz, educational articles, or links to external tools — constitutes medical advice, a clinical assessment, or a diagnosis of any medical condition.</p>
+    <ul>
+      <li>The AI-powered quiz on this site assesses <strong>lifestyle risk factors only</strong>. It is not a cognitive assessment, memory test, or clinical screening tool. It cannot detect, diagnose, or rule out dementia or mild cognitive impairment (MCI).</li>
+      <li>The formal screening tests we link to (SAGE, MoCA XpressO™, Mini-Cog) are validated educational or clinical tools developed by third-party organisations. AvoidDementia is not affiliated with and does not endorse any specific tool over another.</li>
+      <li><strong>If you have concerns about your memory, thinking, or cognitive function, please see your doctor.</strong> A formal assessment by a qualified healthcare professional — including neurological examination, neuropsychological testing, and possibly blood tests or brain imaging — is the only way to properly evaluate cognitive health.</li>
+      <li>The information on this website is based on publicly available research and is provided for general awareness. It may not reflect your individual circumstances, medical history, or genetic risk.</li>
+      <li>AvoidDementia does not collect or store any responses from the AI quiz. No personal health data is retained.</li>
+    </ul>
+    <p>If you or someone you care about is experiencing sudden or severe memory changes, confusion, or personality shifts, please seek urgent medical attention or contact your local healthcare provider immediately.</p>
+  </div>
+</section>
+
+<!-- ── NEWS ── -->
+<section class="section news-section">
+  <div class="news-header">
+    <div>
+      <div class="section-label">Latest from the Blog</div>
+      <div class="section-title">Research, Guides & Stories</div>
+    </div>
+    <a href="#" class="see-all">See All Articles →</a>
+  </div>
+  <div class="news-grid">
+    <a href="#" class="news-card">
+      <div class="news-thumb thumb-green">🧠</div>
+      <div class="news-body">
+        <div class="news-cat">Research</div>
+        <h3>Exercise Shown to Reduce Alzheimer's Risk by Up to 45% in New Study</h3>
+        <p>A landmark 2025 study of 10,000 adults over 15 years confirms that sustained aerobic exercise is one of the most powerful tools we have.</p>
+        <div class="news-footer-row"><span class="news-date">April 2026</span><span class="read-more">Read more →</span></div>
+      </div>
+    </a>
+    <a href="#" class="news-card">
+      <div class="news-thumb thumb-amber">🥗</div>
+      <div class="news-body">
+        <div class="news-cat">Nutrition</div>
+        <h3>The MIND Diet: A Complete Beginner's Guide to Eating for Brain Health</h3>
+        <p>We break down exactly which foods to eat more of, which to limit, and how to build brain-protective habits without overhauling your life.</p>
+        <div class="news-footer-row"><span class="news-date">March 2026</span><span class="read-more">Read more →</span></div>
+      </div>
+    </a>
+    <a href="#" class="news-card">
+      <div class="news-thumb thumb-blue">😴</div>
+      <div class="news-body">
+        <div class="news-cat">Sleep</div>
+        <h3>Why Sleep Is Your Brain's Nightly Detox — And What Happens When You Skip It</h3>
+        <p>The glymphatic system flushes toxic waste from your brain while you sleep. Here's what the science says about sleep's critical role.</p>
+        <div class="news-footer-row"><span class="news-date">February 2026</span><span class="read-more">Read more →</span></div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- ── QUOTE ── -->
+<div class="quote-band">
+  <blockquote>"What's good for your heart is good for your brain. And it's never too late — or too early — to start protecting both."</blockquote>
+  <cite>— Professor Gill Livingston, Lead Author, Lancet Commission on Dementia Prevention</cite>
+</div>
+
+<!-- ── CTA ── -->
+<div class="cta-section">
+  <div class="cta-left">
+    <h2>Your Brain Health Journey Starts Here</h2>
+    <p>Whether you're building healthy habits in your 40s, or supporting a loved one after a diagnosis — we have evidence-based resources for every stage of the journey.</p>
+    <a href="#risk-factors" class="btn-amber">Explore All Resources →</a>
+  </div>
+  <div class="cta-right">
+    <h3>Get Weekly Brain Health Tips</h3>
+    <div class="newsletter-form">
+      <input type="text" placeholder="Your first name"/>
+      <input type="email" placeholder="Your email address"/>
+      <button type="button">Subscribe — It's Free</button>
+      <p class="form-note">No spam, ever. Unsubscribe anytime. We respect your privacy.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a href="#" class="footer-logo">Avoid<em>Dementia</em></a>
+      <p>Evidence-based education on dementia prevention and brain health, for individuals, families, and healthcare professionals.</p>
+      <div class="footer-socials">
+        <a href="#">🐦</a><a href="#">💼</a><a href="#">📘</a><a href="#">▶️</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Understand Dementia</h4>
+      <a href="#">What Is Dementia?</a>
+      <a href="#">Types of Dementia</a>
+      <a href="#">Alzheimer's Disease</a>
+      <a href="#">Early Warning Signs</a>
+    </div>
+    <div class="footer-col">
+      <h4>Prevention</h4>
+      <a href="#">12 Risk Factors</a>
+      <a href="#">Exercise & Brain Health</a>
+      <a href="#">MIND Diet Guide</a>
+      <a href="#">Sleep & Dementia</a>
+      <a href="#quiz-section">AI Risk Quiz</a>
+    </div>
+    <div class="footer-col">
+      <h4>Cognitive Tests</h4>
+      <a href="https://wexnermedical.osu.edu/brain-spine-neuro/memory-disorders/sage" target="_blank">SAGE Test (Free)</a>
+      <a href="https://alzfdn.org/get-a-free-screening/" target="_blank">MoCA XpressO™ (Free)</a>
+      <a href="https://mini-cog.com/" target="_blank">Mini-Cog© (Free)</a>
+      <a href="#">Find a GP</a>
+      <a href="#">For Carers</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© AvoidDementia 2026 — Educational information only. Always consult a qualified healthcare professional.</span>
+    <div>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Use</a>
+      <a href="#">Medical Disclaimer</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ══════════════════════════════════════════
+     QUIZ JAVASCRIPT + CLAUDE API
+══════════════════════════════════════════ -->
+<script>
+const questions = document.querySelectorAll('.quiz-question');
+const progressBar = document.getElementById('quizProgress');
+const stepLabel = document.getElementById('quizStepLabel');
+const nextBtn = document.getElementById('quizNext');
+const backBtn = document.getElementById('quizBack');
+const quizNav = document.getElementById('quizNav');
+const quizInner = document.getElementById('quizInner');
+const quizLoading = document.getElementById('quizLoading');
+const quizResults = document.getElementById('quizResults');
+const quizError = document.getElementById('quizError');
+const aiResponseText = document.getElementById('aiResponseText');
+
+let currentQ = 0;
+const answers = {};
+const totalQ = questions.length;
+
+// Option selection
+document.querySelectorAll('.quiz-option').forEach(opt => {
+  opt.addEventListener('click', () => {
+    const parent = opt.closest('.quiz-question');
+    parent.querySelectorAll('.quiz-option').forEach(o => o.classList.remove('selected'));
+    opt.classList.add('selected');
+    answers[currentQ] = opt.getAttribute('data-val');
+    nextBtn.classList.add('ready');
+    if (currentQ === totalQ - 1) {
+      nextBtn.textContent = 'Get My Results →';
+      nextBtn.classList.add('submit-btn');
+    }
+  });
+});
+
+function updateUI() {
+  questions.forEach((q, i) => q.classList.toggle('active', i === currentQ));
+  const pct = ((currentQ + 1) / totalQ) * 100;
+  progressBar.style.width = pct + '%';
+  stepLabel.textContent = `Question ${currentQ + 1} of ${totalQ}`;
+  backBtn.style.visibility = currentQ > 0 ? 'visible' : 'hidden';
+  // Reset next button state
+  nextBtn.classList.remove('ready', 'submit-btn');
+  nextBtn.textContent = currentQ === totalQ - 1 ? 'Get My Results →' : 'Next →';
+  if (answers[currentQ]) {
+    nextBtn.classList.add('ready');
+    if (currentQ === totalQ - 1) nextBtn.classList.add('submit-btn');
+  }
+  // Re-apply selection highlight
+  const q = questions[currentQ];
+  q.querySelectorAll('.quiz-option').forEach(opt => {
+    opt.classList.toggle('selected', opt.getAttribute('data-val') === answers[currentQ]);
+  });
+}
+
+function nextQuestion() {
+  if (!answers[currentQ]) return;
+  if (currentQ < totalQ - 1) {
+    currentQ++;
+    updateUI();
+  } else {
+    submitQuiz();
+  }
+}
+
+function prevQuestion() {
+  if (currentQ > 0) { currentQ--; updateUI(); }
+}
+
+function buildPrompt() {
+  const map = {
+    0: { label: "Physical Activity", val: answers[0] },
+    1: { label: "Diet Quality", val: answers[1] },
+    2: { label: "Sleep Quality", val: answers[2] },
+    3: { label: "Social Connection", val: answers[3] },
+    4: { label: "Mental Stimulation", val: answers[4] },
+    5: { label: "Blood Pressure", val: answers[5] },
+    6: { label: "Smoking", val: answers[6] },
+    7: { label: "Alcohol Intake", val: answers[7] },
+    8: { label: "Hearing", val: answers[8] },
+    9: { label: "Mental Health / Depression", val: answers[9] }
+  };
+
+  const responseList = Object.values(map).map(r => `- ${r.label}: ${r.val}`).join('\n');
+
+  return `You are a brain health educator working for AvoidDementia, an educational website about dementia prevention. A website visitor has just completed a lifestyle risk factor questionnaire based on the 12 Lancet Commission modifiable dementia risk factors.
+
+Their responses are:
+${responseList}
+
+Based on their answers, write a warm, encouraging, and practical personalised brain health report. Structure it using these sections, using plain HTML (h4 tags for headings, p tags for paragraphs, ul/li for lists):
+
+<h4>🧠 Your Brain Health Snapshot</h4>
+[2-3 sentences summarising their overall picture — be warm and honest, not alarmist. Acknowledge both strengths and areas for improvement.]
+
+<h4>✅ What You're Doing Well</h4>
+[1-3 specific lifestyle factors from their answers that are already protective. Be specific.]
+
+<h4>⚠️ Areas to Prioritise</h4>
+[1-4 specific risk factors from their answers that they could improve. For each one, name it clearly and give 1-2 very concrete, practical, science-backed steps they can take. Reference the Lancet Commission evidence where relevant.]
+
+<h4>📋 Your Personalised Action Plan</h4>
+[A short bulleted list of 3-5 specific, actionable steps they can take in the next month. Make them realistic and achievable.]
+
+<h4>🩺 When to See Your Doctor</h4>
+[Recommend seeing a GP if any of their answers suggest unmanaged health conditions (e.g. unmanaged high blood pressure, untreated hearing loss, untreated depression, untreated sleep apnea). Always recommend they speak to their doctor for personalised medical advice regardless. Mention the formal cognitive screening tests (SAGE, MoCA XpressO) as next steps if they want a more rigorous assessment.]
+
+End with a short warm closing sentence.
+
+IMPORTANT: This is educational content only. Do NOT make clinical diagnoses or predict individual dementia risk with certainty. Be encouraging and empowering, not frightening. Keep the total response under 500 words. Use the HTML tags exactly as shown.`;
+}
+
+async function submitQuiz() {
+  quizInner.style.display = 'none';
+  quizNav.style.display = 'none';
+  quizLoading.classList.add('active');
+
+  try {
+    const response = await fetch("/api/ask-claude", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        model: "claude-sonnet-4-20250514",
+        max_tokens: 1000,
+        messages: [{ role: "user", content: buildPrompt() }]
+      })
+    });
+
+    const data = await response.json();
+
+    if (data.content && data.content[0] && data.content[0].text) {
+      const html = data.content[0].text;
+      aiResponseText.innerHTML = html;
+      quizLoading.classList.remove('active');
+      quizResults.classList.add('active');
+      progressBar.style.width = '100%';
+      stepLabel.textContent = 'Your results are ready';
+    } else {
+      throw new Error('No content returned');
+    }
+  } catch (err) {
+    quizLoading.classList.remove('active');
+    quizError.classList.add('active');
+  }
+}
+
+function resetQuiz() {
+  currentQ = 0;
+  Object.keys(answers).forEach(k => delete answers[k]);
+  questions.forEach(q => {
+    q.querySelectorAll('.quiz-option').forEach(o => o.classList.remove('selected'));
+  });
+  quizResults.classList.remove('active');
+  quizError.classList.remove('active');
+  quizLoading.classList.remove('active');
+  quizInner.style.display = 'block';
+  quizNav.style.display = 'flex';
+  updateUI();
+}
+</script>
+
+</body>
+</html>

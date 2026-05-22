@@ -1,0 +1,7 @@
+{
+  "functions": {
+    "api/ask-claude.js": {
+      "runtime": "nodejs20.x"
+    }
+  }
+}
